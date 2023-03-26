@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  psql:
+    image: postgres:latest
+    volumes:
+      - ./data/bullying/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_DB: 'mmo'
+      POSTGRES_USER: 'blacksnow'
+      POSTGRES_PASSWORD: 'password'
+    ports:
+      - "5432:5432"
+    restart: on-failure
+    healthcheck:
+      test: "exit 0"
