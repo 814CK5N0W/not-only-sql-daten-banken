@@ -1,0 +1,2 @@
+- [ ] CLI finished (docker build w/ pgsql script)
+- [ ] 2 finished
