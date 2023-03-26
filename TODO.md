@@ -1,0 +1,2 @@
+- [ ] Cassandra docker img
+- [ ] Ts CLI
