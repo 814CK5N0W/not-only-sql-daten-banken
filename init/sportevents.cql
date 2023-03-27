@@ -28,6 +28,7 @@ select min(team_members_count),team_name from teams;
 
 
 -- truncate table championships;
+drop materialized view if exists fa_cups;
 drop table if exists championships;
 create table championships (
     championship_id uuid,
@@ -53,12 +54,11 @@ apply batch;
 
 select * from championships;
 
-UPDATE championships SET championship_end_date='2024-10-10' WHERE championship_id=166b1527-05e8-428f-bd66-0323eb642393;
-DELETE FROM championships where championship_id=166b1527-05e8-428f-bd66-0323eb642393;
+-- UPDATE championships SET championship_end_date='2024-10-10';
+-- DELETE FROM championships where championship_id=166b1527-05e8-428f-bd66-0323eb642393;
 
 SELECT * FROM championships WHERE championship_name='FA Cup' ALLOW FILTERING;
 
-drop materialized view fa_cups;
 create materialized view fa_cups
 as
 select *
