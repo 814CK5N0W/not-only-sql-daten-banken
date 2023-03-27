@@ -1,4 +1,4 @@
-CREATE KEYSPACE IF NOT EXISTS sport_event_db WITH REPLICATION = {
+create keyspace if not exists sport_event_db with replication = {
       'class' : 'SimpleStrategy', 'replication_factor' : 2 };
 
 use sport_event_db;
@@ -13,7 +13,7 @@ create table teams (
     team_name text,
     team_id uuid,
     team_members_count int,
-    PRIMARY KEY (team_id)
+    PRIMARY KEY (team_name,team_members_count)
 );
 
 begin batch
@@ -21,10 +21,19 @@ insert into teams (team_name,team_id,team_members_count) VALUES ('Monkeys',uuid(
 insert into teams (team_name,team_id,team_members_count) VALUES ('Monkeys Senior',uuid(),2);
 insert into teams (team_name,team_id,team_members_count) VALUES ('Monkeys Gosu',uuid(),3);
 insert into teams (team_name,team_id,team_members_count) VALUES ('Monkeys Goku',uuid(),4);
+insert into teams (team_name,team_id,team_members_count) VALUES ('Monkeys Goku',uuid(),10);
+insert into teams (team_name,team_id,team_members_count) VALUES ('Monkeys Goku',uuid(),10);
+insert into teams (team_name,team_id,team_members_count) VALUES ('Monkeys Goku',uuid(),11);
+insert into teams (team_name,team_id,team_members_count) VALUES ('Monkeys Goku',uuid(),12);
+insert into teams (team_name,team_id,team_members_count) VALUES ('Monkeys Goku',uuid(),13);
 apply batch;
 
 select * from teams;
 select min(team_members_count),team_name from teams;
+select cast(team_members_count as double) from teams;
+
+
+select * from teams where team_name='Monkeys Goku' order by team_members_count DESC;
 
 
 -- truncate table championships;
@@ -94,7 +103,7 @@ insert into games(game_id, game_discipline, game_stage, game_team_host, game_tea
 VALUES (uuid(),'Basketball','GroupStage',1,1,{team_a: '1 Point',team_b: '0 Points'},1);
 
 insert into games(game_id, game_discipline, game_stage, game_team_host, game_team_guest, game_score, game_championship_id)
-VALUES (uuid(),'Hockey','GroupStage',1,1,{team_a: '30 Points',team_b: '0 Points'},1);
+VALUES (uuid(),'Hockey','GroupStage',1,1,{team_a: '30 Points',team_b: '0 Points'},1) using ttl 15;
 apply batch;
 
 select * from games;
