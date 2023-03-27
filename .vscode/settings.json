@@ -1,0 +1,11 @@
+{
+    "plpgsqlLanguageServer.database": "sportevent",
+    "plpgsqlLanguageServer.user": "blacksnow",
+    "plpgsqlLanguageServer.password": "secretkey",
+    "plpgsqlLanguageServer.definitionFiles": [
+      "**/*.sql",
+      "**/*.psql",
+      "**/*.pgsql"
+    ],
+   
+  }
