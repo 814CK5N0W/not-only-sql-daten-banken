@@ -1,3 +1,3 @@
 FROM --platform=arm64 cassandra:latest
 
-COPY ./etc/ /etc/cassandra/
+COPY ./config/ /etc/cassandra/

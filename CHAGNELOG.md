@@ -19,3 +19,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - gitignore file
 
 ### Fixed
+
+
+## [1.0.0] - 2023-03-28
+
+### Added
+    - sportevent db init code (PSQL)
+    - sportevent db init code (Cassandra)
+    - sportevent db init code (Neo4j)
+    - sportevent db init code (MongoDB)
+    - cli to start dbs
+    - active record clean arch + repository module tests (jest)
+
+### Changed
+    - psql init code
+
+### Fixed
