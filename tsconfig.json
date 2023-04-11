@@ -1,12 +1,13 @@
 {
-    "compilerOptions": {
-      "rootDir": "source",
-      "outDir": "dist",
-      "strict": true,
-      "target": "esnext",
-      "module": "ESNext",
-      "sourceMap": true,
-      "esModuleInterop": true,
-      "moduleResolution": "node"
+  "compilerOptions": {
+    "module": "es6",
+    "target": "ESNext",
+    "strict": true,
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "baseUrl": "source",
+    "paths" : {
+      "@models/*": ["models/*"],
     }
   }
+}
